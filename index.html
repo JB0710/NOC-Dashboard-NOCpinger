@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NOC Wall Screen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="wallboardBanner" class="wallboard-banner"></div>
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="4" width="18" height="6" rx="2"></rect>
+          <rect x="3" y="14" width="18" height="6" rx="2"></rect>
+          <path d="M7 7h.01M7 17h.01M12 7h5M12 17h5"></path>
+        </svg>
+      </div>
+      <div>
+        <h1>NOC Wall Screen</h1>
+        <div class="subhead">Grouped device status by Core, Distribution, and Access</div>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div class="header-badges" id="topBadges"></div>
+      <div class="header-controls">
+        <button id="wallboardToggle" class="btn">Wallboard: Off</button>
+        <button id="minimalToggle" class="btn">Minimal: Off</button>
+        <button id="kioskToggle" class="btn">Kiosk: Off</button>
+        <button id="fullscreenBtn" class="btn">Fullscreen</button>
+        <button id="soundToggle" class="btn">Sound: On</button>
+        <button id="autoScrollToggle" class="btn">Auto Scroll: Off</button>
+        <button id="ackToggle" class="btn ack-btn">Acknowledge Alert</button>
+        <button id="editorToggle" class="btn">Inventory Editor</button>
+      </div>
+      <div class="clock" id="wallboardClock"></div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="overview-grid" id="overviewGrid"></section>
+
+    <section class="chart-grid" id="chartsSection">
+      <div class="panel">
+        <div class="panel-title">Fleet Latency Trend</div>
+        <canvas id="fleetChart" width="1200" height="240"></canvas>
+      </div>
+      <div class="panel">
+        <div class="panel-title">Group Latency Snapshot</div>
+        <canvas id="groupChart" width="1200" height="240"></canvas>
+      </div>
+    </section>
+
+    <section class="groups-stack" id="groupsStack"></section>
+  </main>
+
+  <aside id="editorDrawer" class="editor-drawer">
+    <div class="editor-header">
+      <div>
+        <h2>Inventory Editor</h2>
+        <div class="editor-sub">Changes save to devices.json and reload live.</div>
+      </div>
+      <button id="editorClose" class="btn">Close</button>
+    </div>
+
+    <div class="editor-toolbar">
+      <button id="editorReload" class="btn">Reload from File</button>
+      <button id="editorAdd" class="btn btn-primary">Add Device</button>
+      <button id="editorSave" class="btn btn-primary">Save Changes</button>
+    </div>
+
+    <div id="editorMessage" class="editor-message"></div>
+    <div id="editorRows" class="editor-rows"></div>
+  </aside>
+
+  <div id="addModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Add Device</h3>
+        <button id="modalClose" class="btn">Close</button>
+      </div>
+      <div class="modal-grid">
+        <div class="field">
+          <label for="newIp">IP Address</label>
+          <input id="newIp" type="text" placeholder="10.10.0.1">
+        </div>
+        <div class="field">
+          <label for="newHostname">Hostname</label>
+          <input id="newHostname" type="text" placeholder="CORE-SW1">
+        </div>
+        <div class="field">
+          <label for="newGroup">Group</label>
+          <select id="newGroup">
+            <option value="core">core</option>
+            <option value="distribution">distribution</option>
+            <option value="access" selected>access</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="newLocation">Location</label>
+          <input id="newLocation" type="text" placeholder="Data Center">
+        </div>
+        <div class="field span-2">
+          <label for="newNotes">Notes</label>
+          <input id="newNotes" type="text" placeholder="Optional">
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="modalAdd" class="btn btn-primary">Add Device</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="alertOverlay" class="alert-overlay hidden">
+    <div class="alert-box">
+      <div class="alert-title">🚨 NETWORK ALERT</div>
+      <div class="alert-text" id="alertText">One or more devices are DOWN</div>
+      <button id="overlayAckBtn" class="btn alert-ack-btn">ACKNOWLEDGE</button>
+    </div>
+  </div>
+
+  <audio id="alarmAudio" src="alarm1.mp3" preload="auto"></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{
+  "devices": [
+    {
+      "ip": "10.230.25.1",
+      "hostname": "SWC-01",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+     {
+      "ip": "10.230.25.2",
+      "hostname": "SW-02-STACK",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.3",
+      "hostname": "SWC-03",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.23.2",
+      "hostname": "ICL-OT-DC01",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.23.3",
+      "hostname": "ICL-OT-DNS01",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.23.4",
+      "hostname": "ICL-OT-DNS02",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.23.5",
+      "hostname": "ICL-OT-NTP01",
+      "group": "core",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.28",
+      "hostname": "ENG-SW04",
+      "group": "distribution",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.30",
+      "hostname": "ENG-SW07",
+      "group": "distribution",
+      "location": "Admin Bldg",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.60",
+      "hostname": "ACD-SW06",
+      "group": "access",
+      "location": "Acid Drumming",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.31",
+      "hostname": "HEX1-SW14",
+      "group": "access",
+      "location": "HEX1",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.70",
+      "hostname": "HEX2-SW09",
+      "group": "access",
+      "location": "HEX 2/3 Elec Rm",
+      "notes": ""
+    },
+    {
+      "ip": "10.230.25.71",
+      "hostname": "HEX3-SW10",
+      "group": "access",
+      "location": "HEX 2/3 Elec Rm",
+      "notes": ""
+    }
+  ]
+}
